@@ -405,4 +405,15 @@
             <replace replace="CHAR(38)" with="UNIQUEIDENTIFIER NOT NULL DEFAULT NEWSEQUENTIALID()"/>
         </modifySql>
     </changeSet>
+
+    <changeSet id="licensemanagement-add-idnex-to-device_mac" author="SolDevelo">
+        <preConditions>
+            <not>
+                <indexExists indexName="idx_licensemgmt_device_device_mac" />
+            </not>
+        </preConditions>
+        <createIndex tableName="licensemgmt_device" indexName="idx_licensemgmt_device_device_mac">
+            <column name="device_mac" />
+        </createIndex>
+    </changeSet>
 </databaseChangeLog>
